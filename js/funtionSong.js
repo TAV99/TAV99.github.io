@@ -18,11 +18,11 @@ var imgURL;
 
 
 //Day du lieu len madal edit
-function onclickEdit(docId, Id, Name, Singer,Song) {
+function onclickEdit(docId, Id, Name, Singer,Type) {
     document.getElementById('IDEdit').value = Id;
     document.getElementById('NameEdit').value = Name;
     document.getElementById('SingerEdit').value = Singer;   
-    document.getElementById('SongEdit').value = Song;
+    document.getElementById('editType').value = Type;
     DocId = docId;
 
 }
