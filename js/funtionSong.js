@@ -130,7 +130,7 @@ btnSaveEdit.addEventListener('click', e => {
     const strID = document.getElementById('IDEdit').value;
     const strName = document.getElementById('NameEdit').value;
     const strSinger = document.getElementById('SingerEdit').value;
-    const strSong = document.getElementById('SongEdit').value;
+    const editType = document.getElementById('editType').value;
 
     console.log('this is the strID:',strID);
     console.log('this is the strName:',strName);
@@ -140,7 +140,7 @@ btnSaveEdit.addEventListener('click', e => {
         "ID": strID,
         "Name": strName,
         "Singer": strSinger,
-        "Song": strSong
+        "Type": editType
     }).then(function() {
         alert('Edit thanh cong!');
         console.log("ThanhCong!");
