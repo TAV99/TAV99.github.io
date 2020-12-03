@@ -108,6 +108,7 @@ btnAddSong.addEventListener('click', e => {
             Singer: Singer.value,
             Link: audioURL,
             Image: imgURL,
+            Like: 0
         })
         .then(function() {
             alert('Document successfully written!');
