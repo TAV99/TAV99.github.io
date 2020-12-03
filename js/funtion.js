@@ -1,4 +1,5 @@
 const ID = document.getElementById('ID');
+const Type = document.getElementById('Type');
 const Name = document.getElementById('Name');
 const Singer = document.getElementById('Singer');
 const Song = document.getElementById('Song');

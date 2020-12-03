@@ -245,7 +245,7 @@
                                                 <th>Like</th>
                                                 <th>Name</th>
                                                 <th>Singer</th>
-                                                <th>Song</th>
+                                                <th>Type</th>
 
                                                 <th></th>
                                             </tr>
@@ -262,7 +262,7 @@
                 </div>
             </div>
         </div>
-        <!-- Model -->
+        <!--Add Model -->
     <div class="modal fade" id="studentaddmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -290,8 +290,14 @@
                             <input type="text" name="Singer" id="Singer" class="form-control" placeholder="Enter Singer" />
                         </div>
                         <div class="form-group">
-                            <label> Song </label>
-                            <input type="text" name="Song" id="Song" class="form-control" placeholder="Enter Song" />
+                            <label> Type </label>
+                            <select name="type" id="Type">
+                                <option value="T01">Việt Nam</option>
+                                <option value="T02">US/UK</option>
+                                <option value="T03">Hàn Quốc</option>
+                                <option value="T04">Trung Quốc</option>
+                            </select>
+                            <!-- <input type="text" name="Type" id="Type" class="form-control" placeholder="Enter Song" /> -->
                         </div>
                         <div class="form-group">
                             <input type="file" id="fileImage" name="file" />
@@ -343,8 +349,8 @@
                             <input type="text" name="SingerEdit" id="SingerEdit" class="form-control" placeholder="Enter Singer" />
                         </div>
                         <div class="form-group">
-                            <label> Song </label>
-                            <input type="text" name="SongEdit" id="SongEdit" class="form-control" placeholder="Enter Song" />
+                            <label> Type </label>
+                            <input type="text" name="TypeEdit" id="TypeEdit" class="form-control" placeholder="Enter Song" />
                         </div>
                         <div class="form-group">
                             <input type="file" id="ImageEdit" name="ImageEdit" />
@@ -441,8 +447,8 @@
                     kq += '<td><span class="block-email">' + row.Like + '</span></td>';
                     kq += '<td class="desc">' + row.Name + '</td>';
                     kq += '<td>' + row.Singer + '</td>'
-                    kq += '<td><span class="status--denied">' + row.Song + '</span></td>';
-                    kq += '<td><div class="table-data-feature"><button class="item" id="btnEdit" onclick="onclickEdit(' + '\'' +doc.id+ '\'' + ',' + '\'' +row.ID+ '\'' + ',' + '\'' +row.Name+ '\''+ ',' + '\'' +row.Singer+ '\'' + ',' + '\'' +row.Song+ '\'' + ');" data-toggle="modal" data-target="#studenteditmodal" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></button><button  class="item" id="btnDel" onclick="onclickDelete('+ '\'' +doc.id+ '\'' +');" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></button></div></td>';
+                    kq += '<td><span class="status--denied">' + row.Type + '</span></td>';
+                    kq += '<td><div class="table-data-feature"><button class="item" id="btnEdit" onclick="onclickEdit(' + '\'' +doc.id+ '\'' + ',' + '\'' +row.ID+ '\'' + ',' + '\'' +row.Name+ '\''+ ',' + '\'' +row.Singer+ '\'' + ',' + '\'' +row.Type+ '\'' + ');" data-toggle="modal" data-target="#studenteditmodal" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></button><button  class="item" id="btnDel" onclick="onclickDelete('+ '\'' +doc.id+ '\'' +');" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></button></div></td>';
                     kq += '<tr">';
                     kq += '<tr class="spacer"></tr>';
                     document.getElementById("Songs-list").innerHTML += kq;
