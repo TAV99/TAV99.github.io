@@ -18,7 +18,7 @@ var imgURL;
 
 //Day du lieu len madal edit
 function onclickEdit(docId, Id, Name, Singer,Type) {
-    document.getElementById('IDEdit').value = Id;
+    document.getElementById("IDEdit").innerHTML = Id;
     document.getElementById('NameEdit').value = Name;
     document.getElementById('SingerEdit').value = Singer;   
     document.getElementById('TypeEdit').value = Type;
@@ -126,17 +126,17 @@ btnAddSong.addEventListener('click', e => {
 btnSaveEdit.addEventListener('click', e => {
     e.preventDefault();
     //Gia tri khi nhap lai
-    const strID = document.getElementById('IDEdit').value;
+    // const strID = document.getElementById('IDEdit').value;
     const strName = document.getElementById('NameEdit').value;
     const strSinger = document.getElementById('SingerEdit').value;
     const strType = document.getElementById('TypeEdit').value;
 
-    console.log('this is the strID:',strID);
+    // console.log('this is the strID:',strID);
     console.log('this is the strName:',strName);
 
     //update
     SongsCollection.doc(DocId).update({
-        "ID": strID,
+        // "ID": strID,
         "Name": strName,
         "Singer": strSinger,
         "Type": strType

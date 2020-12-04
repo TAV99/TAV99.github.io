@@ -291,7 +291,12 @@
                         </div>
                         <div class="form-group">
                             <label> Type </label>
-                            <input type="text" name="Type" id="Type" class="form-control" placeholder="Enter Song" />
+                                <select id="Type">
+                                    <option value="T01">Việt Nam</option>
+                                    <option value="T02">US/UK</option>
+                                    <option value="T03">Hàn Quốc</option>
+                                    <option value="T04">Trung Quốc</option>
+                                </select>
                         </div>
                         <div class="form-group">
                             <input type="file" id="fileImage" name="file" />
@@ -328,6 +333,10 @@
 
                 <form enctype="multipart/form-data">
                     <div class="modal-body">
+                        <div class="form-group">
+                            <label> ID: </label>
+                            <p id="IDEdit"></p>
+                        </div>
 
                         <div class="form-group">
                             <label> Name </label>
@@ -340,7 +349,12 @@
                         </div>
                         <div class="form-group">
                             <label> Type </label>
-                            <input type="text" name="TypeEdit" id="TypeEdit" class="form-control" placeholder="Enter Song" />
+                            <select id="TypeEdit">
+                                <option value="T01">Việt Nam</option>
+                                <option value="T02">US/UK</option>
+                                <option value="T03">Hàn Quốc</option>
+                                <option value="T04">Trung Quốc</option>
+                            </select>
                         </div>
                     </div>
                     <div class="modal-footer">
