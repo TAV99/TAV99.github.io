@@ -1,8 +1,7 @@
 const ID = document.getElementById('ID');
-const Type = document.getElementById('Type');
 const Name = document.getElementById('Name');
 const Singer = document.getElementById('Singer');
-const Song = document.getElementById('Song');
+const Type = document.getElementById('Type');
 const FileSong = document.getElementById('fileSong');
 const FileImage = document.getElementById('fileImage')
 const btnAddSong = document.getElementById('btnAddSong');
@@ -22,7 +21,7 @@ function onclickEdit(docId, Id, Name, Singer,Type) {
     document.getElementById('IDEdit').value = Id;
     document.getElementById('NameEdit').value = Name;
     document.getElementById('SingerEdit').value = Singer;   
-    document.getElementById('editType').value = Type;
+    document.getElementById('TypeEdit').value = Type;
     DocId = docId;
 
 }
@@ -109,8 +108,8 @@ btnAddSong.addEventListener('click', e => {
             Singer: Singer.value,
             Link: audioURL,
             Image: imgURL,
-            Type: Type.value,
-            Like: 0
+            Like: 0,
+            Type: Type.value
         })
         .then(function() {
             alert('Document successfully written!');
@@ -130,7 +129,7 @@ btnSaveEdit.addEventListener('click', e => {
     const strID = document.getElementById('IDEdit').value;
     const strName = document.getElementById('NameEdit').value;
     const strSinger = document.getElementById('SingerEdit').value;
-    const editType = document.getElementById('editType').value;
+    const strType = document.getElementById('TypeEdit').value;
 
     console.log('this is the strID:',strID);
     console.log('this is the strName:',strName);
@@ -140,7 +139,7 @@ btnSaveEdit.addEventListener('click', e => {
         "ID": strID,
         "Name": strName,
         "Singer": strSinger,
-        "Type": editType
+        "Type": strType
     }).then(function() {
         alert('Edit thanh cong!');
         console.log("ThanhCong!");

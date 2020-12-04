@@ -1,8 +1,8 @@
 const ID = document.getElementById('ID');
-const Type = document.getElementById('Type');
 const Name = document.getElementById('Name');
 const Singer = document.getElementById('Singer');
 const Song = document.getElementById('Song');
+
 const Image = document.getElementById('Image');
 const btnSave = document.getElementById('btnSave');
 const btnClose = document.getElementById('btnClose');
@@ -10,6 +10,7 @@ const btnEdit = document.getElementById('btnEdit');
 const btnDel = document.getElementById('btnDel');
 
 var DocId = null;
+var imgURL;
 
 // var input = document.getElementById("btnDel");
 // var inputVal = "";
@@ -18,6 +19,7 @@ var DocId = null;
 
 
 const database = firebase.firestore();
+var storage = firebase.storage();
 
 const AlbumCollection = database.collection('Album');
 
@@ -43,9 +45,33 @@ function onclickEdit(docId, Id, Name, Singer,Song) {
     document.getElementById('SongEdit').value = Song;
     console.log(docId);
     DocId = docId;
+    
 
 }
+    // upload img
+    FileImage.addEventListener('change', function(e) {
+        uploadImage(e.target.files[0])
+    });
+    // upload + trả ra đường dẫn
+    async function uploadImage(file) {
+        var filename = await file.name;
+        await storage.ref(`Testimage/${filename}`).put(file);
+        return await getlinkimg(filename);
+    
+    }
+ // lấy đừng dẫn rồi tạo link dowload
+ async function getlinkimg(filename){
+    var loadurl;
+    var  path = await (`Testimage/${filename}`)
+    var imgRef= await storage.ref(path);
+         await imgRef.getDownloadURL()
+         .then(function(url){
+             loadurl = url
+         })
+          console.log(loadurl);
+         imgURL = await loadurl;
 
+ }
 //Nhan nut update
 btnSaveEdit.addEventListener('click', e => {
     e.preventDefault();
@@ -76,12 +102,14 @@ btnSaveEdit.addEventListener('click', e => {
 btnSave.addEventListener('click', e => {
     e.preventDefault();
     const alb = AlbumCollection.doc(ID.value);
+    var strSong = Song.value;
+    var arrSong = strSong.split(" ");
     alb.set({
             ID: ID.value,
             Name: Name.value,
             Singer: Singer.value,
-            Song: Song.value,
-            Image: Image.value
+            Song: arrSong,
+            Image: imgURL
         })
         .then(function() {
             alert('Document successfully written!');
