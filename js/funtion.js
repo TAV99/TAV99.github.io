@@ -85,11 +85,12 @@ btnSaveEdit.addEventListener('click', e => {
     console.log('this is the strName:',strName);
 
     //update
+    var arrSong = strSong.split(", ");
     AlbumCollection.doc(DocId).update({
         "ID": strID,
         "Name": strName,
         "Singer": strSinger,
-        "Song": strSong
+        "Song": arrSong
     }).then(function() {
         alert('Edit thanh cong!');
         console.log("ThanhCong!");
@@ -103,7 +104,7 @@ btnSave.addEventListener('click', e => {
     e.preventDefault();
     const alb = AlbumCollection.doc(ID.value);
     var strSong = Song.value;
-    var arrSong = strSong.split(" ");
+    var arrSong = strSong.split(", ");
     alb.set({
             ID: ID.value,
             Name: Name.value,
